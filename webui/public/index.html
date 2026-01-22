@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ARIA - Synthetic Intelligence IDE with Agentic Memory, Orchestration Intelligence, and Personalized Development Experience">
+  <meta name="keywords" content="IDE, AI, synthetic intelligence, code editor, agentic development">
+  <title>ARIA | Synthetic Intelligence IDE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css">
+  <!-- Prism.js Syntax Highlighting - Tokyo Night Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <!-- Neural Activity Background -->
+    <div class="neural-bg" id="neuralBg">
+      <canvas id="neuralCanvas"></canvas>
+    </div>
+
+    <!-- Command Palette (Ctrl+Shift+P) -->
+    <div class="command-palette" id="commandPalette">
+      <div class="command-container">
+        <div class="command-header">
+          <div class="command-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <input type="text" id="commandInput" placeholder="Type a command or search..." autocomplete="off">
+          <div class="command-shortcuts">
+            <kbd>Esc</kbd>
+          </div>
+        </div>
+        <div class="command-categories" id="commandCategories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="file">Files</button>
+          <button class="category-btn" data-category="ai">AI</button>
+          <button class="category-btn" data-category="git">Git</button>
+          <button class="category-btn" data-category="workflow">Workflows</button>
+        </div>
+        <div class="command-results" id="commandResults">
+          <!-- Command results populated dynamically -->
+        </div>
+        <div class="command-footer">
+          <span><kbd>Enter</kbd> to select</span>
+          <span><kbd>Tab</kbd> for AI assist</span>
+          <span class="ai-status" id="aiCommandStatus">
+            <span class="ai-dot"></span> Neural ready
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Chat Sidebar -->
+    <aside class="ai-sidebar" id="aiSidebar">
+      <div class="ai-sidebar-header">
+        <div class="ai-avatar">
+          <div class="ai-avatar-ring"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="ai-info">
+          <h3>ARIA Neural Core</h3>
+          <span class="ai-status-text" id="aiStatusText">Ready to assist</span>
+        </div>
+        <button class="ai-close" id="aiSidebarClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="ai-context-bar" id="aiContextBar">
+        <div class="context-item active" data-context="workspace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </svg>
+          Workspace
+        </div>
+        <div class="context-item" data-context="file">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          </svg>
+          Current File
+        </div>
+        <div class="context-item" data-context="selection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          Selection
+        </div>
+      </div>
+
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-welcome">
+          <div class="welcome-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h4>How can I help you today?</h4>
+          <div class="welcome-suggestions">
+            <button class="suggestion-chip" data-prompt="Explain this codebase">Explain codebase</button>
+            <button class="suggestion-chip" data-prompt="Find bugs in my code">Find bugs</button>
+            <button class="suggestion-chip" data-prompt="Help me refactor">Refactor code</button>
+            <button class="suggestion-chip" data-prompt="Generate tests">Generate tests</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-input-container">
+        <div class="ai-input-wrapper">
+          <div class="ai-input-actions">
+            <button class="ai-action-btn" id="aiAttachFile" title="Attach file">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+              </svg>
+            </button>
+            <button class="ai-action-btn" id="aiVoiceInput" title="Voice input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+                <line x1="8" y1="23" x2="16" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <textarea id="aiInput" placeholder="Ask ARIA anything..." rows="1"></textarea>
+          <button class="ai-send-btn" id="aiSend">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+        <div class="ai-input-footer">
+          <span class="memory-indicator" id="memoryIndicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Memory active
+          </span>
+          <span class="token-count" id="tokenCount">0 tokens</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <div class="logo">
+            <div class="logo-icon" id="logoIcon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="logo-text-container">
+              <span class="logo-text">ARIA</span>
+              <span class="logo-subtitle">Synthetic Intelligence</span>
+            </div>
+          </div>
+          
+          <!-- Memory Status -->
+          <div class="memory-status" id="memoryStatus">
+            <div class="memory-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                <path d="M12 2a10 10 0 0 1 10 10"/>
+              </svg>
+            </div>
+            <div class="memory-info">
+              <span class="memory-label">Memory</span>
+              <span class="memory-value" id="memoryValue">Active</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <button class="command-trigger" id="commandTrigger">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <span>Search or run commands...</span>
+            <div class="shortcut-hint">
+              <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd>
+            </div>
+          </button>
+        </div>
+
+        <div class="header-right">
+          <div class="header-actions">
+            <button class="header-btn" id="workflowBtn" title="Workflows">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+              </svg>
+              <span class="btn-badge" id="activeWorkflows">0</span>
+            </button>
+            <button class="header-btn" id="insightsBtn" title="Project Insights">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </button>
+            <button class="header-btn active" id="aiChatBtn" title="AI Assistant (Ctrl+/)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+              </svg>
+            </button>
+          </div>
+          <div class="header-divider"></div>
+          <button class="header-btn theme-toggle" id="themeToggle" title="Toggle Theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <div class="user-avatar" id="userAvatar">
+            <span>D</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <!-- Activity Bar (VSCode-like) -->
+        <nav class="activity-bar">
+          <div class="activity-top">
+            <button class="activity-btn active" data-view="explorer" title="Explorer (Ctrl+Shift+E)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+              </svg>
+            </button>
+            <button class="activity-btn" data-view="search" title="Search (Ctrl+Shift+F)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <button class="activity-btn" data-view="git" title="Source Control (Ctrl+Shift+G)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="18" r="3"/>
+                <circle cx="6" cy="6" r="3"/>
+                <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+                <line x1="6" y1="9" x2="6" y2="21"/>
+              </svg>
+              <span class="activity-badge" id="gitBadge">0</span>
+            </button>
+            <button class="activity-btn" data-view="agents" title="AI Agents">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+              </svg>
+            </button>
+            <button class="activity-btn" data-view="workflows" title="Workflows">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </button>
+            <button class="activity-btn" data-view="docker" title="Docker">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12c0 1.5-.5 2.5-1.5 3.5"/>
+                <path d="M12 8h1v3h-1V8z"/>
+                <path d="M8 8h1v3H8V8z"/>
+                <path d="M4 8h1v3H4V8z"/>
+                <path d="M8 4h1v3H8V4z"/>
+                <path d="M12 4h1v3h-1V4z"/>
+                <rect x="2" y="7" width="14" height="8" rx="1"/>
+              </svg>
+            </button>
+          </div>
+          <div class="activity-bottom">
+            <button class="activity-btn" data-view="system" title="System Monitor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </button>
+            <button class="activity-btn" data-view="settings" title="Settings (Ctrl+,)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+          <button class="sidebar-mobile-close" id="sidebarMobileClose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <!-- Explorer View -->
+          <div class="sidebar-view active" id="explorerView">
+            <div class="sidebar-header">
+              <h2>EXPLORER</h2>
+              <div class="sidebar-actions">
+                <button class="sidebar-action" id="newFileBtn" title="New File">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <line x1="9" y1="15" x2="15" y2="15"/>
+                  </svg>
+                </button>
+                <button class="sidebar-action" id="newFolderBtn" title="New Folder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    <line x1="12" y1="11" x2="12" y2="17"/>
+                    <line x1="9" y1="14" x2="15" y2="14"/>
+                  </svg>
+                </button>
+                <button class="sidebar-action" id="refreshBtn" title="Refresh">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23,4 23,10 17,10"/>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                  </svg>
+                </button>
+                <button class="sidebar-action" id="collapseAllBtn" title="Collapse All">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 14 10 14 10 20"/>
+                    <polyline points="20 10 14 10 14 4"/>
+                    <line x1="14" y1="10" x2="21" y2="3"/>
+                    <line x1="3" y1="21" x2="10" y2="14"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="path-breadcrumb" id="pathBreadcrumb">
+              <span class="breadcrumb-item">~</span>
+            </div>
+            <div class="file-tree" id="fileTree">
+              <div class="loading-spinner">
+                <div class="spinner"></div>
+                <span>Loading files...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search View -->
+          <div class="sidebar-view" id="searchView">
+            <div class="sidebar-header">
+              <h2>SEARCH</h2>
+            </div>
+            <div class="search-form">
+              <div class="search-input-group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="globalSearchInput" placeholder="Search">
+              </div>
+              <div class="search-input-group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                </svg>
+                <input type="text" id="replaceInput" placeholder="Replace">
+              </div>
+              <div class="search-options">
+                <label class="search-option">
+                  <input type="checkbox" id="caseSensitive">
+                  <span>Aa</span>
+                </label>
+                <label class="search-option">
+                  <input type="checkbox" id="wholeWord">
+                  <span>Ab</span>
+                </label>
+                <label class="search-option">
+                  <input type="checkbox" id="useRegex">
+                  <span>.*</span>
+                </label>
+              </div>
+            </div>
+            <div class="search-results-container" id="searchResultsContainer">
+              <div class="search-placeholder">
+                <span>Enter search term and press Enter</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Git View -->
+          <div class="sidebar-view" id="gitView">
+            <div class="sidebar-header">
+              <h2>SOURCE CONTROL</h2>
+              <div class="sidebar-actions">
+                <button class="sidebar-action" id="gitRefreshBtn" title="Refresh">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23,4 23,10 17,10"/>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="git-branch-info" id="gitBranchInfo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="18" r="3"/>
+                <circle cx="6" cy="6" r="3"/>
+                <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+                <line x1="6" y1="9" x2="6" y2="21"/>
+              </svg>
+              <span id="currentBranch">main</span>
+            </div>
+            <div class="git-commit-form">
+              <textarea id="commitMessage" placeholder="Commit message (Ctrl+Enter to commit)"></textarea>
+              <div class="git-commit-actions">
+                <button class="git-btn primary" id="commitBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Commit
+                </button>
+                <button class="git-btn" id="stageAllBtn" title="Stage All">+</button>
+              </div>
+            </div>
+            <div class="git-changes" id="gitChanges">
+              <!-- Git changes will be populated here -->
+            </div>
+          </div>
+
+          <!-- Agents View -->
+          <div class="sidebar-view" id="agentsView">
+            <div class="sidebar-header">
+              <h2>AI AGENTS</h2>
+            </div>
+            <div class="agents-intro">
+              <p>Specialized AI agents for different tasks. Each agent has unique capabilities.</p>
+            </div>
+            <div class="agents-list" id="agentsList">
+              <!-- Agents will be populated here -->
+            </div>
+            <div class="orchestration-section">
+              <h3>Orchestration</h3>
+              <button class="orchestration-btn" id="multiAgentBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 8v8m-4-4h8"/>
+                </svg>
+                Launch Multi-Agent Task
+              </button>
+            </div>
+          </div>
+
+          <!-- Workflows View -->
+          <div class="sidebar-view" id="workflowsView">
+            <div class="sidebar-header">
+              <h2>WORKFLOWS</h2>
+              <div class="sidebar-actions">
+                <button class="sidebar-action" id="newWorkflowBtn" title="New Workflow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="workflows-list" id="workflowsList">
+              <!-- Workflows will be populated here -->
+            </div>
+          </div>
+
+          <!-- Docker View -->
+          <div class="sidebar-view" id="dockerView">
+            <div class="sidebar-header">
+              <h2>DOCKER</h2>
+              <div class="sidebar-actions">
+                <button class="sidebar-action" id="dockerRefreshBtn" title="Refresh">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23,4 23,10 17,10"/>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="docker-section">
+              <h3>Containers</h3>
+              <div class="docker-list" id="dockerContainersList">
+                <!-- Containers will be populated here -->
+              </div>
+            </div>
+            <div class="docker-section">
+              <h3>Images</h3>
+              <div class="docker-list" id="dockerImagesList">
+                <!-- Images will be populated here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- System View -->
+          <div class="sidebar-view" id="systemView">
+            <div class="sidebar-header">
+              <h2>SYSTEM</h2>
+            </div>
+            <div class="system-metrics">
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">CPU</span>
+                  <span class="metric-value" id="sidebarCpu">0%</span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-fill cpu" id="sidebarCpuBar" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Memory</span>
+                  <span class="metric-value" id="sidebarMemory">0%</span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-fill memory" id="sidebarMemoryBar" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Disk</span>
+                  <span class="metric-value" id="sidebarDisk">0%</span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-fill disk" id="sidebarDiskBar" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="system-details" id="systemDetails">
+              <!-- System details will be populated here -->
+            </div>
+          </div>
+
+          <!-- Settings View -->
+          <div class="sidebar-view" id="settingsView">
+            <div class="sidebar-header">
+              <h2>SETTINGS</h2>
+            </div>
+            <div class="settings-list">
+              <div class="setting-group">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                  <label>Theme</label>
+                  <select id="themeSetting">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                    <option value="midnight">Midnight</option>
+                    <option value="aurora">Aurora</option>
+                    <option value="synthwave">Synthwave</option>
+                  </select>
+                </div>
+                <div class="setting-item">
+                  <label>Font Size</label>
+                  <input type="range" id="fontSizeSetting" min="12" max="20" value="14">
+                </div>
+              </div>
+              <div class="setting-group">
+                <h3>AI &amp; Memory</h3>
+                <div class="setting-item">
+                  <label>Enable Memory</label>
+                  <input type="checkbox" id="memorySetting" checked>
+                </div>
+                <div class="setting-item">
+                  <label>Auto-suggestions</label>
+                  <input type="checkbox" id="autoSuggestSetting" checked>
+                </div>
+              </div>
+              <div class="setting-group">
+                <h3>Editor</h3>
+                <div class="setting-item">
+                  <label>Line Numbers</label>
+                  <input type="checkbox" id="lineNumbersSetting" checked>
+                </div>
+                <div class="setting-item">
+                  <label>Minimap</label>
+                  <input type="checkbox" id="minimapSetting" checked>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Resizer -->
+        <div class="resizer" id="resizer"></div>
+
+        <!-- Main Panel -->
+        <main class="main-panel">
+          <!-- Editor Tabs -->
+          <div class="editor-tabs" id="editorTabs">
+            <div class="tabs-scroll">
+              <div class="tab-item active" data-tab="welcome">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Welcome</span>
+              </div>
+            </div>
+            <div class="tabs-actions">
+              <button class="tab-action" id="splitEditorBtn" title="Split Editor">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="12" y1="3" x2="12" y2="21"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Editor Content -->
+          <div class="editor-content">
+            <!-- Welcome Tab -->
+            <div class="editor-tab-content active" id="welcomeTab">
+              <div class="welcome-page">
+                <div class="welcome-hero">
+                  <div class="welcome-logo">
+                    <div class="welcome-logo-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                        <path d="M2 17L12 22L22 17"/>
+                        <path d="M2 12L12 17L22 12"/>
+                      </svg>
+                    </div>
+                    <h1>ARIA</h1>
+                    <span class="welcome-tagline">Synthetic Intelligence IDE</span>
+                  </div>
+                  <p class="welcome-description">
+                    Experience the future of development with adaptive AI, persistent memory,
+                    intelligent orchestration, and a fully personalized coding environment.
+                  </p>
+                </div>
+
+                <div class="welcome-grid">
+                  <div class="welcome-card" id="openFolderCard">
+                    <div class="card-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    </div>
+                    <h3>Open Folder</h3>
+                    <p>Start exploring your project</p>
+                  </div>
+                  <div class="welcome-card" id="aiAssistCard">
+                    <div class="card-icon ai">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4"/>
+                      </svg>
+                    </div>
+                    <h3>AI Assistant</h3>
+                    <p>Get intelligent help with your code</p>
+                  </div>
+                  <div class="welcome-card" id="workflowsCard">
+                    <div class="card-icon workflow">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                      </svg>
+                    </div>
+                    <h3>Workflows</h3>
+                    <p>Automate your development tasks</p>
+                  </div>
+                  <div class="welcome-card" id="settingsCard">
+                    <div class="card-icon settings">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                      </svg>
+                    </div>
+                    <h3>Personalize</h3>
+                    <p>Configure your workspace</p>
+                  </div>
+                </div>
+
+                <div class="welcome-features">
+                  <h2>Synthetic Intelligence Features</h2>
+                  <div class="features-grid">
+                    <div class="feature-item">
+                      <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                          <path d="M12 2a10 10 0 0 1 10 10"/>
+                        </svg>
+                      </div>
+                      <div class="feature-content">
+                        <h4>Persistent Memory</h4>
+                        <p>ARIA remembers your preferences, patterns, and context across sessions</p>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="3"/>
+                          <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M1 12h4m14 0h4"/>
+                        </svg>
+                      </div>
+                      <div class="feature-content">
+                        <h4>Multi-Agent Orchestration</h4>
+                        <p>Coordinate multiple AI agents for complex development tasks</p>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="16 18 22 12 16 6"/>
+                          <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                      </div>
+                      <div class="feature-content">
+                        <h4>Intelligent Code Lens</h4>
+                        <p>Real-time AI suggestions and refactoring hints inline</p>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                      </div>
+                      <div class="feature-content">
+                        <h4>Visual Workflows</h4>
+                        <p>Create and manage automated development pipelines</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="welcome-shortcuts">
+                  <h2>Keyboard Shortcuts</h2>
+                  <div class="shortcuts-grid">
+                    <div class="shortcut-item">
+                      <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd>
+                      <span>Command Palette</span>
+                    </div>
+                    <div class="shortcut-item">
+                      <kbd>Ctrl</kbd><kbd>/</kbd>
+                      <span>AI Assistant</span>
+                    </div>
+                    <div class="shortcut-item">
+                      <kbd>Ctrl</kbd><kbd>S</kbd>
+                      <span>Save File</span>
+                    </div>
+                    <div class="shortcut-item">
+                      <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd>
+                      <span>Global Search</span>
+                    </div>
+                    <div class="shortcut-item">
+                      <kbd>Ctrl</kbd><kbd>`</kbd>
+                      <span>Toggle Terminal</span>
+                    </div>
+                    <div class="shortcut-item">
+                      <kbd>Ctrl</kbd><kbd>B</kbd>
+                      <span>Toggle Sidebar</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Code Editor -->
+            <div class="editor-tab-content" id="codeEditorTab">
+              <div class="split-editor-container" id="splitEditorContainer">
+                <!-- Primary Editor Pane -->
+                <div class="editor-pane primary" id="editorPane1" data-pane="1">
+                  <div class="code-editor-container">
+                <!-- Find Widget -->
+                <div class="find-widget" id="findWidget">
+                  <div class="find-part">
+                    <button class="find-expand-btn" id="findExpandBtn" title="Toggle Replace">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                    <div class="find-input-container">
+                      <input type="text" id="findInput" placeholder="Find">
+                      <div class="find-options">
+                        <button class="find-option-btn" id="findCaseBtn" title="Match Case">Aa</button>
+                        <button class="find-option-btn" id="findWholeWordBtn" title="Match Whole Word">Ab</button>
+                        <button class="find-option-btn" id="findRegexBtn" title="Use Regular Expression">.*</button>
+                      </div>
+                    </div>
+                    <div class="find-navigation">
+                      <span class="find-matches" id="findMatches">No results</span>
+                      <button class="find-nav-btn" id="findPrevBtn" title="Previous Match (Shift+Enter)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                      </button>
+                      <button class="find-nav-btn" id="findNextBtn" title="Next Match (Enter)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                      </button>
+                      <button class="find-close-btn" id="findCloseBtn" title="Close (Esc)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="replace-part" id="replacePart">
+                    <div class="find-input-container">
+                      <input type="text" id="replaceInput" placeholder="Replace">
+                    </div>
+                    <div class="replace-actions">
+                      <button class="replace-btn" id="replaceBtn" title="Replace">Replace</button>
+                      <button class="replace-btn" id="replaceAllBtn" title="Replace All">All</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="minimap" id="minimap">
+                  <canvas id="minimapCanvas"></canvas>
+                </div>
+                <div class="editor-main">
+                  <div class="line-numbers" id="lineNumbers"></div>
+                  <div class="code-lens-container" id="codeLensContainer">
+                    <!-- AI-powered code lens suggestions appear here -->
+                  </div>
+                  <div class="code-editor-wrapper">
+                    <pre class="code-highlight" id="codeHighlight" aria-hidden="true"><code class="language-javascript" id="highlightCode"></code></pre>
+                    <textarea class="code-editor" id="codeEditor" spellcheck="false"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="editor-statusbar">
+                <div class="status-left">
+                  <span class="status-item" id="cursorPosition">Ln 1, Col 1</span>
+                  <span class="status-item" id="selectionInfo"></span>
+                </div>
+                <div class="status-center">
+                  <span class="status-item language" id="fileLanguage">Plain Text</span>
+                </div>
+                <div class="status-right">
+                  <span class="status-item" id="fileEncoding">UTF-8</span>
+                  <span class="status-item" id="indentType">Spaces: 2</span>
+                  <span class="status-item ai-status" id="codeLensStatus">
+                    <span class="ai-dot"></span> AI Ready
+                  </span>
+                </div>
+              </div>
+                </div>
+                <!-- End Primary Editor Pane -->
+                
+                <!-- Split Editor Resizer -->
+                <div class="split-editor-resizer" id="splitEditorResizer"></div>
+                
+                <!-- Secondary Editor Pane (Initially Hidden) -->
+                <div class="editor-pane secondary" id="editorPane2" data-pane="2">
+                  <div class="pane-header">
+                    <div class="pane-tabs" id="pane2Tabs">
+                      <!-- Tabs for pane 2 -->
+                    </div>
+                    <button class="pane-close-btn" id="closeSplitBtn" title="Close Split">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="code-editor-container">
+                    <div class="minimap" id="minimap2">
+                      <canvas id="minimapCanvas2"></canvas>
+                    </div>
+                    <div class="editor-main">
+                      <div class="line-numbers" id="lineNumbers2"></div>
+                      <div class="code-lens-container" id="codeLensContainer2"></div>
+                      <div class="code-editor-wrapper">
+                        <pre class="code-highlight" id="codeHighlight2" aria-hidden="true"><code class="language-javascript" id="highlightCode2"></code></pre>
+                        <textarea class="code-editor" id="codeEditor2" spellcheck="false"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="editor-statusbar">
+                    <div class="status-left">
+                      <span class="status-item" id="cursorPosition2">Ln 1, Col 1</span>
+                      <span class="status-item" id="selectionInfo2"></span>
+                    </div>
+                    <div class="status-center">
+                      <span class="status-item language" id="fileLanguage2">Plain Text</span>
+                    </div>
+                    <div class="status-right">
+                      <span class="status-item" id="fileEncoding2">UTF-8</span>
+                      <span class="status-item" id="indentType2">Spaces: 2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Panel -->
+          <div class="terminal-resizer" id="terminalResizer"></div>
+          <div class="terminal-wrapper" id="terminalWrapper">
+            <div class="terminal-header">
+              <div class="terminal-tabs">
+                <div class="terminal-tab active" data-terminal="1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4,17 10,11 4,5"/>
+                    <line x1="12" y1="19" x2="20" y2="19"/>
+                  </svg>
+                  <span>Terminal</span>
+                  <button class="terminal-close" title="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="terminal-actions">
+                <button class="terminal-action" id="newTerminalBtn" title="New Terminal">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+                <button class="terminal-action" id="splitTerminalBtn" title="Split Terminal">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="12" y1="3" x2="12" y2="21"/>
+                  </svg>
+                </button>
+                <button class="terminal-action" id="maximizeTerminalBtn" title="Maximize">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 3 21 3 21 9"/>
+                    <polyline points="9 21 3 21 3 15"/>
+                    <line x1="21" y1="3" x2="14" y2="10"/>
+                    <line x1="3" y1="21" x2="10" y2="14"/>
+                  </svg>
+                </button>
+                <button class="terminal-action" id="toggleTerminalBtn" title="Toggle Terminal (Ctrl+`)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-container" id="terminalContainer">
+              <div id="terminal"></div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- Status Bar -->
+      <footer class="statusbar">
+        <div class="status-left">
+          <span class="status-indicator connected" id="connectionStatus">
+            <span class="status-dot"></span>
+            Connected
+          </span>
+          <span class="status-branch" id="statusBranch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="18" r="3"/>
+              <circle cx="6" cy="6" r="3"/>
+              <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+              <line x1="6" y1="9" x2="6" y2="21"/>
+            </svg>
+            main
+          </span>
+          <span class="status-sync" id="statusSync">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"/>
+              <polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </span>
+        </div>
+        <div class="status-center">
+          <span class="status-badge cpu" id="statusCpu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <rect x="9" y="9" width="6" height="6"/>
+            </svg>
+            0%
+          </span>
+          <span class="status-badge memory" id="statusMemory">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+            </svg>
+            0%
+          </span>
+        </div>
+        <div class="status-right">
+          <span class="status-notifications" id="statusNotifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="notification-count" id="notificationCount">0</span>
+          </span>
+          <span class="status-time" id="statusTime">00:00</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <!-- Input Modal -->
+  <div class="modal-overlay" id="inputModalOverlay">
+    <div class="modal" id="inputModal">
+      <div class="modal-header">
+        <h3 id="inputModalTitle">Input Required</h3>
+        <button class="modal-close" id="inputModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="modal-input" id="inputModalInput" placeholder="">
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn secondary" id="inputModalCancel">Cancel</button>
+        <button class="modal-btn primary" id="inputModalConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Agent Modal -->
+  <div class="modal-overlay" id="multiAgentModalOverlay">
+    <div class="modal large" id="multiAgentModal">
+      <div class="modal-header">
+        <h3>Multi-Agent Orchestration</h3>
+        <button class="modal-close" id="multiAgentModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="orchestration-flow">
+          <div class="orchestration-desc">
+            <p>Select multiple agents to collaborate on a complex task. ARIA will coordinate their work automatically.</p>
+          </div>
+          <div class="agent-selection" id="agentSelection">
+            <!-- Agent checkboxes will be populated here -->
+          </div>
+          <div class="orchestration-task">
+            <label>Task Description</label>
+            <textarea id="orchestrationTask" placeholder="Describe the task for the agents..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn secondary" id="multiAgentCancel">Cancel</button>
+        <button class="modal-btn primary gradient" id="multiAgentStart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Start Orchestration
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context Menu -->
+  <div class="context-menu" id="contextMenu">
+    <div class="context-menu-item" data-action="open">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      </svg>
+      Open
+    </div>
+    <div class="context-menu-item" data-action="openSplit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <line x1="12" y1="3" x2="12" y2="21"/>
+      </svg>
+      Open to Side
+    </div>
+    <div class="context-menu-divider"></div>
+    <div class="context-menu-item" data-action="aiExplain">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 1v4m0 14v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83"/>
+      </svg>
+      AI: Explain This
+    </div>
+    <div class="context-menu-item" data-action="aiRefactor">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      AI: Refactor
+    </div>
+    <div class="context-menu-divider"></div>
+    <div class="context-menu-item" data-action="rename">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+      </svg>
+      Rename
+    </div>
+    <div class="context-menu-item" data-action="copy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+      </svg>
+      Copy
+    </div>
+    <div class="context-menu-item" data-action="cut">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="6" cy="6" r="3"/>
+        <circle cx="6" cy="18" r="3"/>
+        <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+        <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+        <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+      </svg>
+      Cut
+    </div>
+    <div class="context-menu-divider"></div>
+    <div class="context-menu-item danger" data-action="delete">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="3,6 5,6 21,6"/>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      </svg>
+      Delete
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Recent Files Panel -->
+  <div class="recent-files-panel" id="recentFilesPanel">
+    <div class="recent-files-header">
+      <h3>Recent Files</h3>
+      <div class="recent-files-shortcuts">
+        <kbd>Enter</kbd> to open
+        <kbd>Esc</kbd> to close
+      </div>
+    </div>
+    <div class="recent-files-search">
+      <input type="text" id="recentFilesSearch" placeholder="Search files..." autofocus>
+    </div>
+    <div class="recent-files-list" id="recentFilesList">
+      <!-- Recent files will be populated here -->
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts Modal -->
+  <div class="modal-overlay" id="shortcutsModalOverlay">
+    <div class="modal large" id="shortcutsModal">
+      <div class="modal-header">
+        <h3>Keyboard Shortcuts</h3>
+        <button class="modal-close" id="shortcutsModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcuts-grid-container">
+          <div class="shortcuts-section">
+            <h4>General</h4>
+            <div class="shortcuts-list">
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd></span>
+                <span class="shortcut-desc">Command Palette</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>/</kbd></span>
+                <span class="shortcut-desc">Toggle AI Assistant</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>P</kbd></span>
+                <span class="shortcut-desc">Quick Open Files</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>?</kbd></span>
+                <span class="shortcut-desc">Show Shortcuts</span>
+              </div>
+            </div>
+          </div>
+          <div class="shortcuts-section">
+            <h4>Editor</h4>
+            <div class="shortcuts-list">
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>S</kbd></span>
+                <span class="shortcut-desc">Save File</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Z</kbd></span>
+                <span class="shortcut-desc">Undo</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Z</kbd></span>
+                <span class="shortcut-desc">Redo</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Tab</kbd></span>
+                <span class="shortcut-desc">Indent</span>
+              </div>
+            </div>
+          </div>
+          <div class="shortcuts-section">
+            <h4>Navigation</h4>
+            <div class="shortcuts-list">
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>E</kbd></span>
+                <span class="shortcut-desc">File Explorer</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd></span>
+                <span class="shortcut-desc">Global Search</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>G</kbd></span>
+                <span class="shortcut-desc">Source Control</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>B</kbd></span>
+                <span class="shortcut-desc">Toggle Sidebar</span>
+              </div>
+            </div>
+          </div>
+          <div class="shortcuts-section">
+            <h4>Terminal</h4>
+            <div class="shortcuts-list">
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>`</kbd></span>
+                <span class="shortcut-desc">Toggle Terminal</span>
+              </div>
+              <div class="shortcut-row">
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>`</kbd></span>
+                <span class="shortcut-desc">New Terminal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insights Panel -->
+  <div class="insights-panel" id="insightsPanel">
+    <div class="insights-header">
+      <h3>Project Intelligence</h3>
+      <button class="insights-close" id="insightsClose">&times;</button>
+    </div>
+    <div class="insights-content" id="insightsContent">
+      <!-- Project insights will be populated here -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.9.0/lib/xterm-addon-web-links.min.js"></script>
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-tsx.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-sql.min.js"></script>
+  <script src="memory.js"></script>
+  <script src="orchestration.js"></script>
+  <!-- Modular components extracted from app.js -->
+  <script src="editor.js"></script>
+  <script src="terminal.js"></script>
+  <script src="fileexplorer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

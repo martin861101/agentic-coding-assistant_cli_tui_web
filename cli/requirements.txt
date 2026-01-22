@@ -1,0 +1,29 @@
+# Core dependencies
+ollama>=0.1.0
+rich>=13.7.0
+prompt-toolkit>=3.0.43
+textual>=0.47.0
+
+# Memory and storage
+chromadb>=0.4.22
+sqlalchemy>=2.0.25
+
+# Code utilities
+pygments>=2.17.2
+gitpython>=3.1.41
+
+# Web automation and search
+selenium>=4.16.0
+tavily-python>=0.3.0
+httpx>=0.25.0
+
+# Additional utilities
+python-dotenv>=1.0.0
+pydantic>=2.5.3
+
+# =============================================================================
+# Optional LLM Providers (install as needed)
+# =============================================================================
+# pip install google-generativeai   # For Gemini
+# pip install openai                # For OpenAI
+# pip install anthropic             # For Anthropic Claude

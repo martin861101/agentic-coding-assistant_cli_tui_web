@@ -1,0 +1,397 @@
+# Web Automation & Search Tools
+
+ARIA now includes powerful web automation and search capabilities using Selenium and Tavily.
+
+## 🌐 Features
+
+### 1. **Browser Automation** (Selenium + Headless Chromium)
+Automate web interactions programmatically without a GUI.
+
+### 2. **AI-Powered Web Search** (Tavily)
+Get AI-generated answers with cited web sources.
+
+### 3. **Web Scraping**
+Extract content from any web page.
+
+### 4. **Data Extraction**
+Extract structured data like links, images, and tables.
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+```bash
+# Install Chromium and ChromeDriver
+sudo apt install chromium-browser chromium-chromedriver
+
+# Install Python packages
+pip install selenium tavily-python
+```
+
+### Tavily API Key
+
+1. Sign up at [tavily.com](https://tavily.com)
+2. Get your API key
+3. Add to `.env`:
+
+```env
+TAVILY_API_KEY=your_api_key_here
+```
+
+---
+
+## 🎯 Usage
+
+### Browser Automation
+
+**Navigate to a page:**
+```
+@web navigate https://example.com
+```
+
+**Click an element:**
+```
+@web click button.submit
+```
+
+**Type into a field:**
+```
+@web type input[name="search"] Hello World
+```
+
+**Get text from element:**
+```
+@web get_text h1.title
+```
+
+**Take a screenshot:**
+```
+@web screenshot mypage.png
+```
+
+**Close browser:**
+```
+@web close
+```
+
+**Example Workflow:**
+```
+@web navigate https://github.com
+@web type input[name="q"] selenium python
+@web click button[type="submit"]
+@web screenshot search_results.png
+@web close
+```
+
+---
+
+### AI-Powered Web Search
+
+**Basic search:**
+```
+@search What is the capital of France?
+```
+
+**Technical search:**
+```
+@search How to implement OAuth2 in Python?
+```
+
+**Current events:**
+```
+@search Latest news about AI developments
+```
+
+**Output includes:**
+- AI-generated answer
+- Top 5 web results with URLs
+- Relevant snippets
+
+---
+
+### Web Scraping
+
+**Scrape entire page:**
+```
+@scrape https://example.com
+```
+
+**Output:**
+- Full page text content
+- Auto-truncated to 2000 chars
+- Use `@extract` for specific data
+
+---
+
+### Data Extraction
+
+**Extract all text:**
+```
+@extract https://example.com text
+```
+
+**Extract all links:**
+```
+@extract https://example.com links
+```
+
+**Extract all images:**
+```
+@extract https://example.com images
+```
+
+**Extract tables:**
+```
+@extract https://example.com tables
+```
+
+---
+
+## 🛠️ Implementation Details
+
+### Headless Chromium Configuration
+
+- **Mode**: Headless (no GUI)
+- **Browser**: Chromium (not Chrome)
+- **Driver**: ChromeDriver
+- **Options**:
+  - `--headless=new` - New headless mode
+  - `--no-sandbox` - Required for Docker/CI
+  - `--disable-dev-shm-usage` - Memory optimization
+  - `--disable-gpu` - GPU not needed
+  - Custom user agent
+
+### Selenium WebDriver
+
+```python
+# Automatically configured in web_tools.py
+options = Options()
+options.add_argument('--headless=new')
+options.binary_location = '/usr/bin/chromium-browser'
+driver = webdriver.Chrome(options=options)
+```
+
+### Tavily Integration
+
+- **Search Depth**: Basic or advanced
+- **Max Results**: 1-10
+- **Include Answer**: AI-generated response
+- **Citations**: Source URLs included
+
+---
+
+## 📚 Use Cases
+
+### 1. Automated Testing
+```
+@web navigate https://myapp.com
+@web type #username testuser
+@web type #password testpass
+@web click button#login
+@web screenshot logged_in.png
+```
+
+### 2. Research & Data Collection
+```
+@search Latest Python security vulnerabilities
+@scrape https://docs.python.org/3/whatsnew/
+@extract https://pypi.org/project/django/ links
+```
+
+### 3. Content Monitoring
+```
+@web navigate https://news.ycombinator.com
+@extract https://news.ycombinator.com links
+@web screenshot hn_frontpage.png
+```
+
+### 4. Competitive Analysis
+```
+@scrape https://competitor.com/pricing
+@extract https://competitor.com/features text
+```
+
+### 5. Documentation Gathering
+```
+@search How does React hooks work?
+@scrape https://react.dev/reference/react/hooks
+@extract https://react.dev/reference/react/hooks text
+```
+
+---
+
+## 🔧 Advanced Usage
+
+### CSS Selectors
+
+ARIA uses CSS selectors for element targeting:
+
+**By ID:**
+```
+@web click #submit-button
+```
+
+**By Class:**
+```
+@web click .btn-primary
+```
+
+**By Attribute:**
+```
+@web click button[type="submit"]
+@web type input[name="email"] test@example.com
+```
+
+**By Hierarchy:**
+```
+@web click div.container > button.submit
+```
+
+### Combining with Agents
+
+**Research + Documentation:**
+```
+@search Best practices for async Python
+# Review search results
+@document # Generate docs based on findings
+```
+
+**Web Data + Code Review:**
+```
+@scrape https://api-example.com/docs
+# Copy API response format
+@review # Get agent to review your API client code
+```
+
+---
+
+## ⚠️ Limitations
+
+### Browser Automation
+- **JavaScript**: Limited dynamic content support
+- **Timing**: May need wait strategies for SPAs
+- **Captchas**: Cannot bypass security measures
+- **Rate Limits**: Respect website ToS
+
+### Tavily Search
+- **API Key Required**: Free tier available
+- **Rate Limits**: Depends on plan
+- **Credits**: Searches consume credits
+
+### Web Scraping
+- **Robots.txt**: Always respect site rules
+- **Dynamic Content**: May not load JavaScript
+- **Terms of Service**: Check website policies
+
+---
+
+## 🐛 Troubleshooting
+
+**Chromium not found:**
+```bash
+# Ubuntu/Debian
+sudo apt install chromium-browser chromium-chromedriver
+
+# Verify installation
+which chromium-browser
+which chromedriver
+```
+
+**Tavily not working:**
+```
+# Check API key is set
+echo $TAVILY_API_KEY
+
+# Or in .env file
+cat .env | grep TAVILY
+```
+
+**Selenium timeout:**
+- Increase timeout in `web_tools.py`
+- Check internet connection
+- Verify URL is accessible
+
+**Element not found:**
+- Verify CSS selector
+- Check if page loaded completely
+- Use browser dev tools to test selector
+
+---
+
+## 📖 Examples
+
+### Example 1: GitHub Trending
+
+```
+@web navigate https://github.com/trending
+@extract https://github.com/trending links
+@web screenshot trending.png
+```
+
+### Example 2: Python Documentation
+
+```
+@search Python asyncio examples
+@scrape https://docs.python.org/3/library/asyncio.html
+```
+
+### Example 3: News Aggregation
+
+```
+@web navigate https://news.ycombinator.com
+@extract https://news.ycombinator.com links
+@web navigate https://lobste.rs
+@extract https://lobste.rs links
+```
+
+### Example 4: API Documentation
+
+```
+@scrape https://api.github.com
+@search GitHub API v3 authentication
+@document # Generate client code docs
+```
+
+---
+
+## 🔐 Best Practices
+
+1. **Respect Robots.txt**: Always check website policies
+2. **Rate Limiting**: Add delays between requests
+3. **User Agents**: Use descriptive user agents
+4. **Error Handling**: Handle failures gracefully
+5. **Clean Up**: Close browsers with `@web close`
+6. **API Keys**: Never commit API keys to git
+7. **ToS Compliance**: Follow website terms of service
+
+---
+
+## 🚀 Future Enhancements
+
+Planned features:
+- JavaScript execution support
+- Better wait strategies (explicit waits)
+- Session persistence
+- Cookie management
+- Proxy support
+- Multi-browser support (Firefox, Edge)
+- Screenshot comparison
+- Form auto-fill
+- PDF generation
+- Browser recording (video)
+
+---
+
+## 📝 Notes
+
+- Selenium runs in **headless mode** - no browser window opens
+- Uses **Chromium**, not Google Chrome
+- Tavily provides **AI-enhanced search** with citations
+- All tools support **error recovery** and clean shutdown
+- Web tools integrate seamlessly with **agent system**
+
+---
+
+**Automate the web with ARIA! 🌐🤖**

@@ -1,0 +1,179 @@
+
+# 2026-01-06 22:34:44.928932
++/help
+
+# 2026-01-06 22:36:00.219898
++@web navigate www.google.com
+
+# 2026-01-06 22:36:16.000510
++/help
+
+# 2026-01-06 22:36:37.891701
++/agents
+
+# 2026-01-06 22:36:59.785450
++@ls
+
+# 2026-01-06 22:38:31.774372
++@exec demo.py
+
+# 2026-01-06 22:39:28.794390
++@write test.sh #!/bin/bash
++
++set -e
++
++# -------------------------------
++# Step 1: Check required tools
++# -------------------------------
++
++for tool in iw airodump-ng tcpdump; do
++    if ! command -v "$tool" &> /dev/null; then
++        echo "$tool not found. Installing..."
++        sudo apt update && sudo apt install -y aircrack-ng iw tcpdump
++        break
++    fi
++done
++
++# -------------------------------
++# Step 2: Identify Wi-Fi interface
++# -------------------------------
++
++INTERFACE=$(iw dev | awk '/Interface/ {print $2}' | head -n 1)
++
++if [ -z "$INTERFACE" ]; then
++    echo "No wireless interface found."
++    exit 1
++fi
++
++echo "Detected interface: $INTERFACE"
++
++# -------------------------------
++# Step 3: Enable monitor mode
++# -------------------------------
++
++echo "Enabling monitor mode..."
++sudo airmon-ng start "$INTERFACE" > /dev/null
++
++MON_IFACE=$(iw dev | awk '/Interface/ {print $2}' | grep mon | head -n 1)
++
++if [ -z "$MON_IFACE" ]; then
++    echo "Failed to enable monitor mode."
++    exit 1
++fi
++
++echo "Monitor interface: $MON_IFACE"
++
++# -------------------------------
++# Step 4: Start capture
++# -------------------------------
++
++echo "Starting capture..."
++sudo airodump-ng --write captured_packets "$MON_IFACE" &
++AIRODUMP_PID=$!
++
++read -n 1 -s -r -p "Press any key to stop capturing..."
++echo
++
++# -------------------------------
++# Step 5: Stop capture cleanly
++# -------------------------------
++
++echo "Stopping capture..."
++sudo kill "$AIRODUMP_PID"
++wait "$AIRODUMP_PID" 2>/dev/null
++
++# -------------------------------
++# Step 6: Disable monitor mode
++# -------------------------------
++
++echo "Disabling monitor mode..."
++sudo airmon-ng stop "$MON_IFACE" > /dev/null
++
++# -------------------------------
++# Step 7: Analyze capture (headless)
++# -------------------------------
++
++CAP_FILE="captured_packets-01.cap"
++
++if [ -f "$CAP_FILE" ]; then
++    echo "Capture file created: $CAP_FILE"
++    echo "Analyzing packets (summary):"
++    sudo tcpdump -r "$CAP_FILE"
++else
++    echo "Capture file not found."
++    exit 1
++fi
++
++echo "Done."
+
+# 2026-01-06 22:39:35.160463
++@ls
+
+# 2026-01-06 22:39:52.467006
++/help
+
+# 2026-01-06 22:40:08.712720
++hi
+
+# 2026-01-06 22:40:23.600370
++/exit
+
+# 2026-01-06 22:40:59.645699
++/help
+
+# 2026-01-06 22:41:11.316445
++@model mistral:latest
+
+# 2026-01-06 22:41:26.934709
++hi
+
+# 2026-01-06 22:43:04.264620
++/exit
+
+# 2026-01-06 22:44:24.342799
++hi
+
+# 2026-01-06 22:44:34.406831
++@model mistral:latest
+
+# 2026-01-06 22:44:50.761807
++/help
+
+# 2026-01-06 22:45:02.640326
++@review
+
+# 2026-01-06 22:45:42.802023
++/exit
+
+# 2026-01-06 22:48:09.435706
++@model mistral:latest
+
+# 2026-01-06 22:48:13.153704
++/help
+
+# 2026-01-06 22:48:24.753639
++/plugins
+
+# 2026-01-06 22:49:07.236538
++@search agentic ai
+
+# 2026-01-06 22:51:10.606510
++@read test.sh
+
+# 2026-01-06 22:51:45.737274
++@refactor
+
+# 2026-01-06 22:52:25.704794
++/exit
+
+# 2026-01-10 02:34:15.209576
++/help
+
+# 2026-01-10 02:35:25.764476
++/plugins
+
+# 2026-01-10 02:36:01.904688
++hi
+
+# 2026-01-10 02:36:51.169015
++/exit

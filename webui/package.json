@@ -1,0 +1,17 @@
+{
+  "name": "coding-agent-webui",
+  "version": "1.0.0",
+  "description": "Web UI for Coding Agent with Terminal and File System Access",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "node-pty": "^1.0.0",
+    "cors": "^2.8.5"
+  }
+}

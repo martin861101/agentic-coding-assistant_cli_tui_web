@@ -1,0 +1,173 @@
+2026-01-06 22:34:33,854 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-06 22:34:33,854 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-06 22:34:33,855 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-06 22:34:33,855 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-06 22:34:33,855 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-06 22:34:33,855 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-06 22:34:33,855 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-06 22:34:33,855 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-06 22:34:33,855 - plugin_system - INFO - Created example plugin at plugins/example_plugin.py
+2026-01-06 22:34:33,856 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-06 22:34:33,856 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-06 22:34:33,856 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-06 22:34:33,856 - __main__ - INFO - Loaded 1 plugins
+2026-01-06 22:34:33,861 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-06 22:34:33,865 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-06 22:34:33,870 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-06 22:34:33,874 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-06 22:34:33,879 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-06 22:34:33,879 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-06 22:34:33,955 - learning_system - INFO - Initialized learning database at memory/learning.db
+2026-01-06 22:34:33,956 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-06 22:34:33,956 - __main__ - INFO - Learning system enabled
+2026-01-06 22:36:03,224 - tools.web_tools - INFO - Chromium WebDriver initialized in headless mode
+2026-01-06 22:36:03,226 - tools.web_tools - ERROR - WebBrowserTool error: Message: invalid argument
+  (Session info: chrome=143.0.7499.146)
+Stacktrace:
+#0 0x5fe2aee8f51a <unknown>
+#1 0x5fe2ae9326f9 <unknown>
+#2 0x5fe2ae91a1f4 <unknown>
+#3 0x5fe2ae91898d <unknown>
+#4 0x5fe2ae918f40 <unknown>
+#5 0x5fe2ae935f9f <unknown>
+#6 0x5fe2ae9ceeab <unknown>
+#7 0x5fe2ae9ce26f <unknown>
+#8 0x5fe2ae9757f7 <unknown>
+#9 0x5fe2ae9764a1 <unknown>
+#10 0x5fe2aee59fcf <unknown>
+#11 0x5fe2aee5cf71 <unknown>
+#12 0x5fe2aee430ce <unknown>
+#13 0x5fe2aee5d709 <unknown>
+#14 0x5fe2aee2c257 <unknown>
+#15 0x5fe2aee7dc18 <unknown>
+#16 0x5fe2aee7de2a <unknown>
+#17 0x5fe2aee8e7c8 <unknown>
+#18 0x76498fcecaa4 <unknown>
+#19 0x76498fd79c6c <unknown>
+
+2026-01-06 22:40:08,720 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-01-06 22:40:08,720 - llm_interface - ERROR - Error in chat: model 'llama3' not found (status code: 404)
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-06 22:40:53,536 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-06 22:40:53,536 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-06 22:40:53,536 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-06 22:40:53,536 - __main__ - INFO - Loaded 1 plugins
+2026-01-06 22:40:53,541 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-06 22:40:53,546 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-06 22:40:53,550 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-06 22:40:53,555 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-06 22:40:53,560 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-06 22:40:53,560 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-06 22:40:53,560 - learning_system - INFO - Initialized learning database at memory/learning.db
+2026-01-06 22:40:53,560 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-06 22:40:53,560 - __main__ - INFO - Learning system enabled
+2026-01-06 22:41:11,320 - llm_interface - INFO - Switched to model: mistral:latest
+2026-01-06 22:41:42,272 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-06 22:44:19,550 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-06 22:44:19,551 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-06 22:44:19,551 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-06 22:44:19,551 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-06 22:44:19,551 - __main__ - INFO - Loaded 1 plugins
+2026-01-06 22:44:19,556 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-06 22:44:19,560 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-06 22:44:19,565 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-06 22:44:19,570 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-06 22:44:19,574 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-06 22:44:19,574 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-06 22:44:19,575 - learning_system - INFO - Initialized learning database at memory/learning.db
+2026-01-06 22:44:19,575 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-06 22:44:19,575 - __main__ - INFO - Learning system enabled
+2026-01-06 22:44:24,352 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-01-06 22:44:24,352 - llm_interface - ERROR - Error in chat: model 'llama3' not found (status code: 404)
+2026-01-06 22:44:34,410 - llm_interface - INFO - Switched to model: mistral:latest
+2026-01-06 22:45:02,644 - agents.base - INFO - Routing task to CodeReviewAgent (confidence: 1.00)
+2026-01-06 22:45:02,646 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-01-06 22:45:02,646 - llm_interface - ERROR - Error in chat: model 'llama3' not found (status code: 404)
+2026-01-06 22:45:02,646 - agents.base - INFO - Agent CodeReviewAgent completed task with confidence 0.90
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-06 22:47:56,378 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-06 22:47:56,379 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-06 22:47:56,379 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-06 22:47:56,379 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-06 22:47:56,379 - __main__ - INFO - Loaded 1 plugins
+2026-01-06 22:47:56,384 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-06 22:47:56,389 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-06 22:47:56,394 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-06 22:47:56,399 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-06 22:47:56,404 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-06 22:47:56,404 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-06 22:47:56,404 - learning_system - INFO - Initialized learning database at memory/learning.db
+2026-01-06 22:47:56,404 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-06 22:47:56,404 - __main__ - INFO - Learning system enabled
+2026-01-06 22:48:09,440 - llm_interface - INFO - Switched to model: mistral:latest
+2026-01-06 22:51:45,745 - agents.base - INFO - Routing task to RefactoringAgent (confidence: 1.00)
+2026-01-06 22:51:45,749 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-01-06 22:51:45,750 - llm_interface - ERROR - Error in chat: model 'llama3' not found (status code: 404)
+2026-01-06 22:51:45,750 - agents.base - INFO - Agent RefactoringAgent completed task with confidence 0.85
+2026-01-10 02:27:24,835 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 02:27:24,835 - llm_interface - INFO - Using model: llama3.2:latest
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 02:27:24,835 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 02:27:24,836 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 02:27:24,836 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 02:27:24,836 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 02:27:24,836 - aria - INFO - Loaded 1 plugins
+2026-01-10 02:27:24,837 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 02:27:24,837 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 02:27:24,837 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 02:27:24,837 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 02:27:24,837 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 02:27:24,837 - aria - INFO - Initialized 5 specialized agents
+2026-01-10 02:27:24,837 - learning_system - INFO - Initialized learning database at memory/learning.db
+2026-01-10 02:27:24,837 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 02:27:24,837 - aria - INFO - Learning system enabled
+2026-01-10 02:34:01,424 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 02:34:01,424 - llm_interface - INFO - Using model: llama3.2:latest
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 02:34:01,424 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 02:34:01,425 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 02:34:01,425 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 02:34:01,425 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 02:34:01,425 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 02:34:01,425 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 02:34:01,425 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 02:34:01,425 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 02:34:01,425 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 02:34:01,425 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 02:34:01,425 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 02:34:01,426 - learning_system - INFO - Initialized learning database at memory/learning.db
+2026-01-10 02:34:01,426 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 02:34:01,426 - __main__ - INFO - Learning system enabled
+2026-01-10 02:36:09,841 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"

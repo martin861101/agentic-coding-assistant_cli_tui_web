@@ -1,0 +1,372 @@
+2026-01-10 06:57:37,681 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 06:57:37,681 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 06:57:37,682 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 06:57:37,682 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 06:57:37,682 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 06:57:37,682 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 06:57:37,682 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 06:57:37,682 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 06:57:37,682 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 06:57:37,682 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 06:57:37,682 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 06:57:37,682 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 06:57:37,710 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 06:57:37,710 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 06:57:37,710 - __main__ - INFO - Learning system enabled
+2026-01-10 06:59:41,958 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-10 07:12:32,162 - __main__ - ERROR - Fatal error: 'Config' object has no attribute 'safe_mode'
+2026-01-10 07:13:16,489 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 07:13:16,490 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 07:13:16,490 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 07:13:16,491 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 07:13:16,491 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 07:13:16,491 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 07:13:16,491 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 07:13:16,491 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 07:13:16,491 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 07:13:16,491 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 07:13:16,491 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 07:13:16,491 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 07:13:16,491 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 07:13:16,491 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 07:13:16,491 - __main__ - INFO - Learning system enabled
+2026-01-10 07:13:46,005 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 07:14:34,908 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-10 07:15:28,116 - __main__ - ERROR - Fatal error: 'Config' object has no attribute 'safe_mode'
+2026-01-10 07:35:21,618 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 07:35:21,619 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 07:35:21,620 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 07:35:21,620 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 07:35:21,620 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 07:35:21,620 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 07:35:21,620 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 07:35:21,620 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 07:35:21,620 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 07:35:21,620 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 07:35:21,620 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 07:35:21,620 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 07:35:21,620 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 07:35:21,620 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 07:35:21,620 - __main__ - INFO - Learning system enabled
+2026-01-10 07:36:28,898 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-10 07:41:02,466 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 07:41:02,466 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 07:41:02,467 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 07:41:02,467 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 07:41:02,467 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 07:41:02,467 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 07:41:02,467 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 07:41:02,467 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 07:41:02,467 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 07:41:02,467 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 07:41:02,467 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 07:41:02,467 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 07:41:02,467 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 07:41:02,468 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 07:41:02,468 - __main__ - INFO - Learning system enabled
+2026-01-10 07:46:59,231 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 07:46:59,232 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 07:46:59,232 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 07:46:59,232 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 07:46:59,232 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 07:46:59,232 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 07:46:59,233 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 07:46:59,233 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 07:46:59,233 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 07:46:59,233 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 07:46:59,233 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 07:46:59,233 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 07:46:59,233 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 07:46:59,233 - __main__ - INFO - Learning system enabled
+2026-01-10 07:47:29,185 - llm_interface - WARNING - google-generativeai package not installed. Run: pip install google-generativeai
+2026-01-10 07:47:29,186 - llm_interface - INFO - Switched to provider: gemini, model: gemini-1.5-flash
+2026-01-10 07:47:46,899 - llm_interface - INFO - Switched to model: gemini-2.5-fladh
+2026-01-10 07:47:56,424 - llm_interface - INFO - Switched to model: gemini-2.5-flash
+2026-01-10 07:49:02,012 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 07:49:02,013 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 07:49:02,013 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 07:49:02,013 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 07:49:02,013 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 07:49:02,013 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 07:49:02,014 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 07:49:02,014 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 07:49:02,014 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 07:49:02,014 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 07:49:02,014 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 07:49:02,014 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 07:49:02,014 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 07:49:02,014 - __main__ - INFO - Learning system enabled
+2026-01-10 07:49:11,700 - llm_interface - WARNING - google-generativeai package not installed. Run: pip install google-generativeai
+2026-01-10 07:49:11,701 - llm_interface - INFO - Switched to provider: gemini, model: gemini-1.5-flash
+2026-01-10 07:49:31,148 - llm_interface - INFO - Switched to model: gemini-2.5-flash
+2026-01-10 08:10:34,430 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 08:10:34,431 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 08:10:34,431 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 08:10:34,432 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 08:10:34,432 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 08:10:34,432 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 08:10:34,432 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 08:10:34,432 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 08:10:34,432 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 08:10:34,432 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 08:10:34,432 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 08:10:34,432 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 08:10:34,432 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 08:10:34,432 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 08:10:34,432 - __main__ - INFO - Learning system enabled
+2026-01-10 08:10:45,137 - llm_interface - WARNING - google-generativeai package not installed. Run: pip install google-generativeai
+2026-01-10 08:10:45,137 - llm_interface - INFO - Switched to provider: gemini, model: gemini-2.5-flash
+2026-01-10 08:19:58,266 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 08:19:58,267 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 08:19:58,267 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 08:19:58,268 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 08:19:58,268 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 08:19:58,268 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 08:19:58,268 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 08:19:58,268 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 08:19:58,268 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 08:19:58,268 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 08:19:58,268 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 08:19:58,268 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 08:19:58,268 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 08:19:58,268 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 08:19:58,268 - __main__ - INFO - Learning system enabled
+2026-01-10 09:59:44,920 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 09:59:44,921 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 09:59:44,921 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 09:59:44,921 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 09:59:44,921 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 09:59:44,921 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 09:59:44,921 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 09:59:44,921 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 09:59:44,922 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 09:59:44,922 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 09:59:44,922 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 09:59:44,922 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 09:59:44,922 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 09:59:44,922 - __main__ - INFO - Learning system enabled
+2026-01-10 10:02:30,396 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 10:02:30,397 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 10:02:30,397 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 10:02:30,397 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 10:02:30,397 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 10:02:30,397 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 10:02:30,398 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 10:02:30,398 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 10:02:30,398 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 10:02:30,398 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 10:02:30,398 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 10:02:30,398 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 10:02:30,398 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 10:02:30,398 - __main__ - INFO - Learning system enabled
+2026-01-10 10:03:41,736 - memory.memory_manager - INFO - MemoryManager initialized with data_dir: /usr/local/bin/aria-files/data
+2026-01-10 10:03:41,736 - llm_interface - INFO - Memory system initialized
+2026-01-10 10:03:42,893 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 10:03:42,948 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 10:07:44,867 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-10 10:09:02,198 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 10:09:02,199 - memory.memory_manager - INFO - Embeddings available with model: nomic-embed-text
+2026-01-10 10:09:02,462 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:33:52,637 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 20:33:52,637 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 20:33:52,638 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 20:33:52,638 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 20:33:52,638 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 20:33:52,638 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 20:33:52,638 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 20:33:52,638 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 20:33:52,638 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 20:33:52,638 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 20:33:52,638 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 20:33:52,638 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 20:33:52,638 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 20:33:52,639 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 20:33:52,639 - __main__ - INFO - Learning system enabled
+2026-01-10 20:36:29,315 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-10 20:36:29,316 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-10 20:36:29,316 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-10 20:36:29,316 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-10 20:36:29,316 - __main__ - INFO - Loaded 1 plugins
+2026-01-10 20:36:29,316 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-10 20:36:29,317 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-10 20:36:29,317 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-10 20:36:29,317 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-10 20:36:29,317 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-10 20:36:29,317 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-10 20:36:29,317 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-10 20:36:29,317 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-10 20:36:29,317 - __main__ - INFO - Learning system enabled
+2026-01-10 20:36:41,355 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-10 20:37:02,348 - llm_interface - INFO - Switched to model: thirdeyeai/Qwen2.5-Coder-7B-Instruct-Uncensored:Q8_0
+2026-01-10 20:37:52,527 - memory.memory_manager - INFO - MemoryManager initialized with data_dir: /usr/local/bin/aria-files/data
+2026-01-10 20:37:52,527 - llm_interface - INFO - Memory system initialized
+2026-01-10 20:37:53,387 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:37:53,440 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:39:55,799 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-10 20:41:34,315 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:41:34,317 - memory.memory_manager - INFO - Embeddings available with model: nomic-embed-text
+2026-01-10 20:41:34,606 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:42:54,937 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:42:55,100 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-10 20:44:50,312 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-10 20:49:04,790 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 17:55:46,409 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-13 17:55:46,410 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-13 17:55:46,411 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-13 17:55:46,411 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-13 17:55:46,411 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-13 17:55:46,411 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-13 17:55:46,411 - __main__ - INFO - Loaded 1 plugins
+2026-01-13 17:55:46,412 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-13 17:55:46,412 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-13 17:55:46,412 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-13 17:55:46,412 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-13 17:55:46,412 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-13 17:55:46,412 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-13 17:55:46,412 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-13 17:55:46,412 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-13 17:55:46,412 - __main__ - INFO - Learning system enabled
+2026-01-13 17:55:50,541 - memory.memory_manager - INFO - MemoryManager initialized with data_dir: /usr/local/bin/aria-files/data
+2026-01-13 17:55:50,541 - llm_interface - INFO - Memory system initialized
+2026-01-13 17:55:52,266 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 17:55:52,339 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 17:58:37,202 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-13 17:59:26,883 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 17:59:26,884 - memory.memory_manager - INFO - Embeddings available with model: nomic-embed-text
+2026-01-13 17:59:27,193 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 19:06:45,680 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-13 19:07:11,069 - llm_interface - INFO - Switched to model: deepseek-r1:8b
+2026-01-13 19:07:14,608 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 19:07:14,631 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 19:09:49,143 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-13 20:13:00,428 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:13:00,459 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:14:18,423 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: ReadFileTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: WriteFileTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: ListFilesTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: ExecuteCodeTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: WebBrowserTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: WebScrapeTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: TavilySearchTool
+2026-01-13 20:14:18,424 - tools.base - INFO - Registered tool: WebExtractTool
+2026-01-13 20:14:18,425 - plugin_system - INFO - Loaded plugin: Example Plugin v1.0.0
+2026-01-13 20:14:18,425 - plugin_system - INFO - Loaded 1/1 plugins
+2026-01-13 20:14:18,425 - tools.base - INFO - Registered tool: GreetingTool
+2026-01-13 20:14:18,425 - __main__ - INFO - Loaded 1 plugins
+2026-01-13 20:14:18,425 - agents.base - INFO - Registered agent: CodeReviewAgent with capabilities: ['code_review', 'security', 'performance']
+2026-01-13 20:14:18,426 - agents.base - INFO - Registered agent: RefactoringAgent with capabilities: ['refactoring']
+2026-01-13 20:14:18,426 - agents.base - INFO - Registered agent: DebugAgent with capabilities: ['debugging']
+2026-01-13 20:14:18,426 - agents.base - INFO - Registered agent: DocumentationAgent with capabilities: ['documentation']
+2026-01-13 20:14:18,426 - agents.base - INFO - Registered agent: TestGenerationAgent with capabilities: ['testing']
+2026-01-13 20:14:18,426 - __main__ - INFO - Initialized 5 specialized agents
+2026-01-13 20:14:18,426 - learning_system - INFO - Initialized learning database at /usr/local/bin/aria-files/data/learning.db
+2026-01-13 20:14:18,427 - learning_system - INFO - Loaded 0 learned patterns
+2026-01-13 20:14:18,427 - __main__ - INFO - Learning system enabled
+2026-01-13 20:14:26,109 - httpx - INFO - HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-01-13 20:14:49,743 - llm_interface - INFO - Switched to model: phi3:mini
+2026-01-13 20:14:58,815 - memory.memory_manager - INFO - MemoryManager initialized with data_dir: /usr/local/bin/aria-files/data
+2026-01-13 20:14:58,815 - llm_interface - INFO - Memory system initialized
+2026-01-13 20:15:00,035 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:15:00,119 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:16:20,545 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-13 20:16:31,818 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:16:31,819 - memory.memory_manager - INFO - Embeddings available with model: nomic-embed-text
+2026-01-13 20:16:31,996 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:43:39,209 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+2026-01-13 20:43:39,240 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
