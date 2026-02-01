@@ -116,7 +116,7 @@ A fast, keyboard-driven interface built with **Bubble Tea**.
 ## 📸 Screenshots
 
 ### Agent Task Execution
-![Task Execution](https://github.com/yourusername/aria-go/raw/main/assets/execution-flow.png)
+![Task Execution](https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/Img/taskview.jpg)
 * Live execution phase indicator
 * Explicit task breakdown with progress
 * Per-step completion state
