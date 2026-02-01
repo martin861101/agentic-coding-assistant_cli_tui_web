@@ -86,13 +86,13 @@ Switch providers and models instantly without restarting.
 
 A fast, keyboard-driven interface built with **Bubble Tea**.
 
-![View]
-(https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/blob/master/Img/Tui1.jpg)
+![ARIA TUI](https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/raw/master/Img/Tui1.jpg)
 
 **Launch:**
 ```bash
 ./aria
 ```
+
 
 ### Keyboard Shortcuts
 | Key | Action |
