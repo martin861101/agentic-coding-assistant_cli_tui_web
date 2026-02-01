@@ -116,7 +116,7 @@ A fast, keyboard-driven interface built with **Bubble Tea**.
 ## 📸 Screenshots
 
 ### Agent Task Execution
-![Task Execution](https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/Img/taskview.jpg)
+![Task Execution](https://raw.githubusercontent.com/martin861101/agentic-coding-assistant_cli_tui_web/master/Img/taskview.jpg)
 * Live execution phase indicator
 * Explicit task breakdown with progress
 * Per-step completion state
