@@ -1,6 +1,8 @@
 # ARIA  
 ### Adaptive Real-time Intelligence Assistant
 
+![ARIA TUI](https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/raw/master/Img/aria.png)
+
 > An agentic AI coding assistant that can read, write, execute, and reason — directly in your terminal or VS Code.
 
 ---
