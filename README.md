@@ -86,7 +86,7 @@ Switch providers and models instantly without restarting.
 
 A fast, keyboard-driven interface built with **Bubble Tea**.
 
-![ARIA TUI Screenshot](https://github.com/yourusername/aria-go/raw/main/assets/tui-screenshot.png)
+![ARIA TUI Screenshot]([https://github.com/yourusername/aria-go/raw/main/assets/tui-screenshot.png](https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/Img/Tui1.jpg)
 
 **Launch:**
 ```bash
