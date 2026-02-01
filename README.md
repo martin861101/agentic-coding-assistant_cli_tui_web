@@ -142,7 +142,7 @@ A fast, keyboard-driven interface built with **Bubble Tea**.
 
 ARIA integrates directly into VS Code.
 
-![ARIA VS Code Extension](https://github.com/yourusername/aria-go/raw/main/assets/vscode-screenshot.png)
+![ARIA VS Code Extension]![ARIA TUI](https://github.com/martin861101/agentic-coding-assistant_cli_tui_web/raw/master/Img/Vscode.jpg)
 
 ### Features
 * Awareness of open files and selections
